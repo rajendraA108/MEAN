@@ -1,0 +1,86 @@
+<div class="page-container">
+
+  <div class="custom-card">
+
+    <div class="d-flex
+                justify-content-between
+                align-items-center
+                mb-4">
+
+      <h2 class="page-title mb-0">
+        Product List
+      </h2>
+
+      <button 
+        class="btn btn-primary"
+        (click)="addProduct()"
+      >
+        Add Product
+      </button>
+
+    </div>
+
+    <table class="table table-hover">
+
+      <thead>
+
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th width="180">
+            Actions
+          </th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        @for(product of products; track product._id) {
+
+        <tr>
+
+          <td>{{ product.title }}</td>
+
+          <td>
+            {{ product.description }}
+          </td>
+
+          <td>
+            ₹ {{ product.price }}
+          </td>
+
+          <td>
+            {{ product.category }}
+          </td>
+
+          <td>
+
+            <button
+              class="btn btn-sm btn-success me-2"
+            >
+              Edit
+            </button>
+
+            <button
+              class="btn btn-sm btn-danger"
+              (click)="deleteProduct(product._id)"
+            >
+              Delete
+            </button>
+
+          </td>
+
+        </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
